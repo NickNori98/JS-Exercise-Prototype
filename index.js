@@ -42,7 +42,7 @@ Airplane.prototype.land = function () {
 function Person(name, age) {
   this.name = name;
   this.age = age;
-  let stomach = []
+  this.stomach = [];
 }
 
 Person.prototype.eat = function(someFood){
@@ -82,7 +82,7 @@ function Car(model, milesPerGallon) {
   this.odometer = 0;
 }
 Car.prototype.fill = function(gallons){
-  this.tank + gallons;
+  this.tank += gallons;
 }
 
 
@@ -95,15 +95,13 @@ Car.prototype.fill = function(gallons){
         + Should return a string "Playing with x", x being the favorite toy.
 */
 function Baby(name, age, favoriteToy) {
-  Person.call(name, age)
-this.favoriteToy = favoriteToy;
+  Person.call(this, name, age)
+  this.favoriteToy = favoriteToy;
 }
-
 Baby.prototype = Object.create(Person.prototype)
-Baby.prototype.play = function(favoriteToy){
 
-
-return `Plays with ${this.favoriteToy}`
+Baby.prototype.play = function(){
+  return `Plays with ${this.favoriteToy}`
 }
 
 
